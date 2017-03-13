@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+<style>
+    .fatto-true{
+        text-decoration: line-through;
+    }
+    </style>
+</head>
+<body ng-app="app">
+    <div  ng-controller="ItemController" class="container">
+        <div class="row">
+            </br>
+              <div class="form-group">
+                    <label for="nuovo">Nuovo</label>
+                    <input ng-model="descrizione" type="text" class="form-control" id="nuovo" placeholder="nuovo">
+                    <button type="button" class="btn btn-primary" ng-click="inserisci()">New</button>
+                </div>
+                </br>
+                <div ng-repeat="dafare in lista track by $index" class="checkbox">
+                        <label>
+                            <input type="checkbox" ng-model="dafare.fatto">
+                            <p class="fatto-{{dafare.fatto}}">{{dafare.descrizione}}</p>
+                            </label>
+                            <button type="button" class="btn btn-primary" ng-click="elimina(lista, $index)">elimina</button>
+                </div>
+                
+
+        </div>
+    </div>
+    <script src="node_modules/angular/angular.min.js"></script>
+  
+    <script src="app.js"></script>
+      <script src="item.controller.js"></script>
+
+</body>
+</html>
